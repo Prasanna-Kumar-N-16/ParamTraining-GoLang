@@ -2,6 +2,7 @@ package main
 
 import (
 	"context"
+	"fmt"
 	"log"
 	"net"
 	"rpc/proto"
@@ -41,5 +42,6 @@ func main() {
 	pb.RegisterAddServiceServer(s, &server{})
 	if err := s.Serve(lis); err != nil {
 		log.Fatalf("failed to serve: %v", err)
+		fmt.Println(err)
 	}
 }
